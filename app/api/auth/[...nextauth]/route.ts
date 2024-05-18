@@ -33,15 +33,23 @@ const options: any = {
       return true;
     },
     async jwt({ token, account, user, trigger, session }) {
+      // console.log(session, trigger);
       if (trigger == "update") {
         token.activeNavItem = session.activeNavItem;
+        if (session.email && session.password) {
+          token.email = session.email;
+          token.password = session.password;
+        }
       }
       return token;
     },
     async session({ session, token }) {
+      // console.log("token", token);
+      session.user.email = token.email || "";
+      session.user.password = token.password || "";
       return {
         ...session,
-        activeNavItem: token.activeNavItem || "",
+        activeNavItem: token.activeNavItem || "home",
         primaryColor: "#a991f7",
       };
     },

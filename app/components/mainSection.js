@@ -8,32 +8,11 @@ export default function MainSection() {
   const session = useSession();
   const primaryColor = get(session, "primaryColor");
   return (
-    <div className="flex flex-col m-28 justify-center items-center">
-      <h2 className="text-black text-2xl">Hi, I'm Divya Naga Lakshmi</h2>
-      <h1 className="text-3xl mt-4 text-black">
-        Passionate & Innovative Full Stack Developer{" "}
-      </h1>
-      <div className="flex gap-3 mt-4">
-        <button
-          className="btn btn-primary"
-          style={{ backgroundColor: primaryColor }}
-        >
-          Download Resume
-        </button>
-        <button
-          className="btn btn-accent"
-          style={{ backgroundColor: primaryColor }}
-        >
-          Hire me
-        </button>
-      </div>
-      <div className="flex gap-3 mt-4">
-        <button className="btn btn-primary btn-sm">
-          <FaGithub color="black" className="cursor-pointer" size={15} />
-        </button>
-        <button className="btn btn-primary btn-sm">
-          <FaLinkedinIn color="black" className="cursor-pointer" size={15} />
-        </button>
+    <div className="flex flex-col items-center content-center m-28  font-serif ">
+      <div style={{ width: "500px" }} className="text-center content-center">
+        <h2 className="text-black text-2xl"></h2>
+        <h1 className="text-3xl mt-4 text-black  content-center text-center"></h1>
+        <h3 className="text-md mt-4 text-black content-center text-center"></h3>
       </div>
     </div>
   );

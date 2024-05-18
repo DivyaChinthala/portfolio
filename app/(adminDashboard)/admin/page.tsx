@@ -8,7 +8,7 @@ export default function AdminDashboard() {
         Start Adding Some Content To The Portfolio
       </p>
       <div className="flex gap-3 mt-4">
-        <Link href="/topSection">
+        <Link href="/top-section">
           <button className="btn  btn-accent">Start With Top Section</button>
         </Link>
         <Link href={"/"}>

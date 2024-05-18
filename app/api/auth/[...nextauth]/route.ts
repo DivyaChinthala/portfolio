@@ -40,6 +40,10 @@ const options: any = {
           token.email = session.email;
           token.password = session.password;
         }
+        if (session.updateType == "LOGOUT") {
+          token.email = "";
+          token.password = "";
+        }
       }
       return token;
     },

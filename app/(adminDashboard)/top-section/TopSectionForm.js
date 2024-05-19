@@ -29,6 +29,7 @@ export default function TopSectionForm() {
     setLoading(false);
   };
   const onSave = async () => {
+    setLoading(true);
     const response = await axios.post(
       process.env.NEXT_PUBLIC_APP_URL + "/api/top-section",
       {
@@ -37,8 +38,12 @@ export default function TopSectionForm() {
         socialMediaIcons,
       }
     );
-    if (response) {
+    if (response.status == 200 || response.status == 201) {
+      setLoading(false);
       toast.success("Data Saved Successfully");
+    } else {
+      setLoading(false);
+      toast.error("Error occurred while saving");
     }
   };
   return (

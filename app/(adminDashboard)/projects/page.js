@@ -1,7 +1,9 @@
+import ProjectForm from "./projectForm";
+
 export default function ProjectsPage() {
   return (
-    <div>
-      <h2 className="text-2xl">Projects</h2>
+    <div className="h-screen p-4">
+      <ProjectForm />
     </div>
   );
 }

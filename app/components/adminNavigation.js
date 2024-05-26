@@ -21,7 +21,7 @@ export default function AdminNavigation() {
   const pathname = usePathname();
   const primaryColor = session?.primary;
   return (
-    <div className="flex gap-4 items-center justify-end p-3">
+    <div className="flex gap-6 items-center justify-end p-3">
       <Link href={"/admin"}>
         <p
           className="text-sm text-base-200 font-medium cursor-pointer"
@@ -65,6 +65,21 @@ export default function AdminNavigation() {
           }
         >
           About
+        </p>
+      </Link>
+      <Link href="/skills">
+        <p
+          className="text-sm text-base-200 font-medium cursor-pointer"
+          style={
+            pathname == "/skills"
+              ? {
+                  borderBottom: `2px solid ${primaryColor}`,
+                  color: primaryColor,
+                }
+              : {}
+          }
+        >
+          Skills
         </p>
       </Link>
       <Link href="/projects">

@@ -1,17 +1,24 @@
 import { getAuthSession } from "../api/auth/[...nextauth]/route";
 import Navigation from "./navigation";
 import MainSection from "./mainSection";
+import axios from "axios";
+import Logo from "../components/logo";
+import { get } from "lodash";
 
 export default async function Homepage() {
   const session = await getAuthSession();
   const primaryColor = session?.primaryColor || "#854408";
+  const response = await axios.get(
+    process.env.NEXT_PUBLIC_APP_URL + "/api/user"
+  );
+  const data = response?.data;
   return (
-    <div className="bg-white h-screen">
+    <div className="h-screen">
       <div className="navbar pl-8 pr-6 py-4">
         <div className="flex-1">
           <a className="font-medium no-underline text-black text-4xl">
             <span style={{ color: primaryColor, fontWeight: 700 }}></span>
-            <span></span>
+            <Logo profile={get(data, "profile")} />
           </a>
         </div>
         <Navigation />
@@ -25,7 +32,7 @@ export default async function Homepage() {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src={get(data, "profile.profilePicture", "")}
                 />
               </div>
             </div>

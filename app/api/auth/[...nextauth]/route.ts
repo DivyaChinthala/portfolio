@@ -54,7 +54,11 @@ const options: any = {
       return {
         ...session,
         activeNavItem: token.activeNavItem || "home",
-        primaryColor: "#a991f7",
+        text: "#FFFFFF", // White Text
+        primary: "#3498DB", // Blue
+        secondary: "#2ECC71", // Green
+        accent: "#ff2b64", // Red
+        neutral: "#BDC3C7", // Light Gray
       };
     },
   },

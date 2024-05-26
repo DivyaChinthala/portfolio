@@ -19,15 +19,18 @@ export default function AdminNavigation() {
     });
   };
   const pathname = usePathname();
-  const primaryColor = session?.primaryColor;
+  const primaryColor = session?.primary;
   return (
     <div className="flex gap-4 items-center justify-end p-3">
       <Link href={"/admin"}>
         <p
-          className="text-sm font-medium cursor-pointer"
+          className="text-sm text-base-200 font-medium cursor-pointer"
           style={
             pathname == "/admin"
-              ? { borderBottom: `2px solid ${primaryColor}` }
+              ? {
+                  borderBottom: `2px solid ${primaryColor}`,
+                  color: primaryColor,
+                }
               : {}
           }
         >
@@ -36,10 +39,13 @@ export default function AdminNavigation() {
       </Link>
       <Link href={"/top-section"}>
         <p
-          className="text-sm font-medium cursor-pointer"
+          className="text-sm text-base-200 font-medium cursor-pointer"
           style={
             pathname == "/top-section"
-              ? { borderBottom: `2px solid ${primaryColor}` }
+              ? {
+                  borderBottom: `2px solid ${primaryColor}`,
+                  color: primaryColor,
+                }
               : {}
           }
         >
@@ -48,10 +54,13 @@ export default function AdminNavigation() {
       </Link>
       <Link href="/about">
         <p
-          className="text-sm font-medium cursor-pointer"
+          className="text-sm text-base-200 font-medium cursor-pointer"
           style={
             pathname == "/about"
-              ? { borderBottom: `2px solid ${primaryColor}` }
+              ? {
+                  borderBottom: `2px solid ${primaryColor}`,
+                  color: primaryColor,
+                }
               : {}
           }
         >
@@ -60,10 +69,13 @@ export default function AdminNavigation() {
       </Link>
       <Link href="/projects">
         <p
-          className="text-sm font-medium cursor-pointer"
+          className="text-sm text-base-200 font-medium cursor-pointer"
           style={
             pathname == "/projects"
-              ? { borderBottom: `2px solid ${primaryColor}` }
+              ? {
+                  borderBottom: `2px solid ${primaryColor}`,
+                  color: primaryColor,
+                }
               : {}
           }
         >
@@ -72,10 +84,13 @@ export default function AdminNavigation() {
       </Link>
       <Link href="/profile">
         <p
-          className="text-sm font-medium cursor-pointer"
+          className="text-sm text-base-200 font-medium cursor-pointer"
           style={
             pathname == "/profile"
-              ? { borderBottom: `2px solid ${primaryColor}` }
+              ? {
+                  borderBottom: `2px solid ${primaryColor}`,
+                  color: primaryColor,
+                }
               : {}
           }
         >
@@ -84,10 +99,13 @@ export default function AdminNavigation() {
       </Link>
       <Link href="/contact-us">
         <p
-          className="text-sm font-medium cursor-pointer"
+          className="text-sm text-base-200 font-medium cursor-pointer"
           style={
             pathname == "/contact-us"
-              ? { borderBottom: `2px solid ${primaryColor}` }
+              ? {
+                  borderBottom: `2px solid ${primaryColor}`,
+                  color: primaryColor,
+                }
               : {}
           }
         >

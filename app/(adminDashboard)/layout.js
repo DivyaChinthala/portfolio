@@ -19,10 +19,7 @@ export default async function AdminDashboardLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div
-          className="h-screen overflow-scroll"
-          style={{ backgroundColor: "#71717a" }}
-        >
+        <div className="h-screen overflow-scroll">
           <AdminNavigation />
           {children}
         </div>

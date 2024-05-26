@@ -7,7 +7,7 @@ import { get } from "lodash";
 
 export default function ProfileForm() {
   const [fullName, setFullName] = useState("");
-  const [profilePicutre, setProfilePicture] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
   const [logo, setLogo] = useState("");
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function ProfileForm() {
       process.env.NEXT_PUBLIC_APP_URL + "/api/profile",
       {
         fullName,
-        profilePicutre,
+        profilePicture,
         logo,
       }
     );
@@ -77,7 +77,7 @@ export default function ProfileForm() {
                   <input
                     type="text"
                     placeholder="Profile Picture"
-                    value={profilePicutre}
+                    value={profilePicture}
                     className="input input-bordered w-full"
                     onChange={(e) => {
                       setProfilePicture(e.target.value);

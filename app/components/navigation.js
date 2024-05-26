@@ -17,7 +17,7 @@ export default function Navigation() {
     });
   };
   const activeNavItem = get(session, "activeNavItem", "home");
-  const primaryColor = get(session, "primaryColor", "#a991f7");
+  const primaryColor = get(session, "primary", "#a991f7");
   const onClickNavItem = (key) => {
     update({
       activeNavItem: key,
@@ -26,7 +26,7 @@ export default function Navigation() {
   return (
     <div className="flex-1 gap-8">
       <p
-        className={`font-medium no-underline text-black textbase text-primary-content cursor-pointer`}
+        className={`font-medium no-underline cursor-pointer`}
         style={
           activeNavItem == "home"
             ? { borderBottom: `2px solid ${primaryColor}`, color: primaryColor }
@@ -37,7 +37,7 @@ export default function Navigation() {
         Home
       </p>
       <p
-        className="font-medium no-underline text-black textbase cursor-pointer"
+        className="font-medium no-underline  cursor-pointer"
         onClick={() => onClickNavItem("about")}
         style={
           activeNavItem == "about"
@@ -48,7 +48,7 @@ export default function Navigation() {
         About
       </p>
       <p
-        className="font-medium no-underline text-black textbase cursor-pointer"
+        className="font-medium no-underline  cursor-pointer"
         onClick={() => onClickNavItem("services")}
         style={
           activeNavItem == "services"
@@ -59,7 +59,7 @@ export default function Navigation() {
         Services
       </p>
       <p
-        className="font-medium no-underline text-black textbase cursor-pointer"
+        className="font-medium no-underline  cursor-pointer"
         onClick={() => onClickNavItem("portfolio")}
         style={
           activeNavItem == "portfolio"
@@ -70,7 +70,7 @@ export default function Navigation() {
         Portfolio
       </p>
       <p
-        className="font-medium no-underline text-black textbase cursor-pointer"
+        className="font-medium no-underline  cursor-pointer"
         onClick={() => onClickNavItem("contact")}
         style={
           activeNavItem == "contact"

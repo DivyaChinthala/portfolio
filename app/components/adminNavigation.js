@@ -70,6 +70,18 @@ export default function AdminNavigation() {
           Projects
         </p>
       </Link>
+      <Link href="/profile">
+        <p
+          className="text-sm font-medium cursor-pointer"
+          style={
+            pathname == "/profile"
+              ? { borderBottom: `2px solid ${primaryColor}` }
+              : {}
+          }
+        >
+          Profile
+        </p>
+      </Link>
       <Link href="/contact-us">
         <p
           className="text-sm font-medium cursor-pointer"

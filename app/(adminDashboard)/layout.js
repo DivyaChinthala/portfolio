@@ -20,7 +20,7 @@ export default async function AdminDashboardLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div
-          className="h-screen scroll-auto p-2"
+          className="h-screen overflow-scroll"
           style={{ backgroundColor: "#71717a" }}
         >
           <AdminNavigation />

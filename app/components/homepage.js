@@ -39,7 +39,7 @@ export default async function Homepage() {
           </div>
         </div>
       </div>
-      <MainSection />
+      <MainSection topSection={get(data, "topSection")} />
     </div>
   );
 }

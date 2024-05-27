@@ -5,6 +5,7 @@ import axios from "axios";
 import Logo from "../components/logo";
 import { get } from "lodash";
 import SkillsSection from "./skills";
+import AboutSection from "./aboutSection";
 
 export default async function Homepage() {
   const session = await getAuthSession();
@@ -42,6 +43,7 @@ export default async function Homepage() {
       </div>
       <MainSection topSection={get(data, "topSection")} />
       <SkillsSection skills={get(data, "skills")} />
+      <AboutSection about={get(data, "about")} />
     </div>
   );
 }

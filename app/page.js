@@ -1,5 +1,9 @@
 import Homepage from "./components/homepage";
 
 export default function Home() {
-  return <Homepage />;
+  return (
+    <div className="h-screen overflow-scroll">
+      <Homepage />
+    </div>
+  );
 }

@@ -10,7 +10,7 @@ export default function MainSection({ topSection }) {
   const primaryColor = get(session, "primary");
   const socialMediaIcons = get(topSection, "socialMediaIcons", []);
   return (
-    <div className="flex flex-col items-center content-center m-28 ">
+    <div className="flex flex-col items-center content-center mt-28 ">
       <div style={{ width: "45%" }} className="text-start content-center">
         <h2 className="text-3xl font-bold flex items-center">
           {get(topSection, "mainHeading", "Fron-End React Developer")}{" "}

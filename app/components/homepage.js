@@ -4,6 +4,7 @@ import MainSection from "./mainSection";
 import axios from "axios";
 import Logo from "../components/logo";
 import { get } from "lodash";
+import SkillsSection from "./skills";
 
 export default async function Homepage() {
   const session = await getAuthSession();
@@ -40,6 +41,7 @@ export default async function Homepage() {
         </div>
       </div>
       <MainSection topSection={get(data, "topSection")} />
+      <SkillsSection skills={get(data, "skills")} />
     </div>
   );
 }

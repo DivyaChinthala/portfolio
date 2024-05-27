@@ -6,6 +6,7 @@ import Logo from "../components/logo";
 import { get } from "lodash";
 import SkillsSection from "./skills";
 import AboutSection from "./aboutSection";
+import Projects from "./projects";
 
 export default async function Homepage() {
   const session = await getAuthSession();
@@ -23,8 +24,8 @@ export default async function Homepage() {
             <Logo profile={get(data, "profile")} />
           </a>
         </div>
-        <Navigation />
-        <div className="flex-none gap-2">
+        <div className="flex-none gap-8">
+          <Navigation />
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -44,6 +45,7 @@ export default async function Homepage() {
       <MainSection topSection={get(data, "topSection")} />
       <SkillsSection skills={get(data, "skills")} />
       <AboutSection about={get(data, "about")} />
+      <Projects projects={get(data, "projects")} />
     </div>
   );
 }

@@ -24,7 +24,7 @@ export default function Navigation() {
     });
   };
   return (
-    <div className="flex-1 gap-8">
+    <div className="flex gap-8">
       <p
         className={`font-medium no-underline cursor-pointer`}
         style={
@@ -34,7 +34,7 @@ export default function Navigation() {
         }
         onClick={() => onClickNavItem("home")}
       >
-        Home
+        <a href="#home">Home</a>
       </p>
       <p
         className="font-medium no-underline  cursor-pointer"
@@ -45,9 +45,9 @@ export default function Navigation() {
             : {}
         }
       >
-        About
+        <a href="#about">About</a>
       </p>
-      <p
+      {/* <p
         className="font-medium no-underline  cursor-pointer"
         onClick={() => onClickNavItem("services")}
         style={
@@ -56,18 +56,19 @@ export default function Navigation() {
             : {}
         }
       >
+        
         Services
-      </p>
+      </p> */}
       <p
         className="font-medium no-underline  cursor-pointer"
-        onClick={() => onClickNavItem("portfolio")}
+        onClick={() => onClickNavItem("projects")}
         style={
-          activeNavItem == "portfolio"
+          activeNavItem == "projects"
             ? { borderBottom: `2px solid ${primaryColor}`, color: primaryColor }
             : {}
         }
       >
-        Portfolio
+        <a href="#projects">projects</a>
       </p>
       <p
         className="font-medium no-underline  cursor-pointer"

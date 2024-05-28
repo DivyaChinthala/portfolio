@@ -27,7 +27,17 @@ export default function MainSection({ topSection }) {
         <div className="flex gap-3 mt-4">
           {socialMediaIcons.map((item) => {
             const IconComponent = Icons[item.value];
-            return <IconComponent className="text-xl cursor-pointer" />;
+            return (
+              <>
+                {item.url ? (
+                  <a href={item.url} target="_blank">
+                    <IconComponent className="text-xl cursor-pointer" />
+                  </a>
+                ) : (
+                  <IconComponent className="text-xl cursor-pointer" />
+                )}
+              </>
+            );
           })}
         </div>
       </div>

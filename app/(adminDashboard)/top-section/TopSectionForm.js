@@ -9,7 +9,7 @@ export default function TopSectionForm() {
   const [mainHeading, setMainHeading] = useState("");
   const [description, setDescription] = useState("");
   const [socialMediaIcons, setSocialMediaIcons] = useState([
-    { id: Date.now(), value: "" },
+    { id: Date.now(), value: "", url: "" },
   ]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function TopSectionForm() {
     setMainHeading(data?.mainHeading || "");
     setDescription(data?.description || "");
     setSocialMediaIcons(
-      data?.socialMediaIcons || [{ id: Date.now(), value: "" }]
+      data?.socialMediaIcons || [{ id: Date.now(), value: "", url: "" }]
     );
     setLoading(false);
   };

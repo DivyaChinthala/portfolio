@@ -7,6 +7,7 @@ import { get } from "lodash";
 import SkillsSection from "./skills";
 import AboutSection from "./aboutSection";
 import Projects from "./projects";
+import Contact from "./contact";
 
 export default async function Homepage() {
   const session = await getAuthSession();
@@ -46,6 +47,7 @@ export default async function Homepage() {
       <SkillsSection skills={get(data, "skills")} />
       <AboutSection about={get(data, "about")} />
       <Projects projects={get(data, "projects")} />
+      <Contact contact={get(data, "contactUs")} />
     </div>
   );
 }

@@ -47,17 +47,21 @@ export default function ProjectForm() {
           <span className="loading loading-dots loading-md"></span>
         </div>
       ) : (
-        <div className="h-full ">
-          <h2 className="text-2xl text-white bold">Projects Content</h2>
-          <DynamicProjectInputs setInputs={setProjects} inputs={projects} />
+        <div className="h-full">
+          <div className="flex gap-3 justify-between mt-4">
+            <h2 className="text-2xl text-white bold">Projects Content</h2>
 
-          <div className="flex gap-3 justify-end mt-4">
-            <Link href="/admin">
-              <button className="btn">Cancel</button>
-            </Link>
-            <button className="btn btn-primary" onClick={onSave}>
-              Save
-            </button>
+            <div className="flex items-centers gap-3">
+              <Link href="/admin">
+                <button className="btn btn-accent">Cancel</button>
+              </Link>
+              <button className="btn btn-primary" onClick={onSave}>
+                Save
+              </button>
+            </div>
+          </div>
+          <div className="mb-8">
+            <DynamicProjectInputs setInputs={setProjects} inputs={projects} />
           </div>
         </div>
       )}

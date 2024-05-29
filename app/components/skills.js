@@ -5,13 +5,15 @@ import * as IconsSi from "react-icons/si";
 import { MdArrowRight } from "react-icons/md";
 import { MdArrowLeft } from "react-icons/md";
 import { useState } from "react";
+import useIsMobile from "./useIsMobile";
 
 export default function SkillsSection({ skills = [] }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const iconsPerSlide = 10;
+  const isMobile = useIsMobile();
+  const iconsPerSlide = isMobile ? 4 : 10;
   const totalSlides =
     skills.length > iconsPerSlide
-      ? Math.ceil(skills.length / iconsPerSlide)
+      ? Math.round(skills.length / iconsPerSlide)
       : 1;
   const startIndex = currentSlideIndex * iconsPerSlide;
   const slideSkills = skills.slice(startIndex, startIndex + iconsPerSlide);
@@ -19,17 +21,14 @@ export default function SkillsSection({ skills = [] }) {
     currentSlideIndex === 0 ? totalSlides - 1 : currentSlideIndex - 1;
   const nextSlide =
     currentSlideIndex === totalSlides - 1 ? 0 : currentSlideIndex + 1;
+  console.log(totalSlides, currentSlideIndex);
   return (
-    <div className="flex flex-col items-center content-center mt-16">
-      <div
-        style={{ width: "45%" }}
-        className="flex items-center text-start content-center"
-      >
+    <div className="flex flex-col md:items-center md:justify-center md:mt-16 m-8">
+      <div className="flex items-center md:justify-center  md:w-1/2">
         <p className="text-md font-semibold"> Skills </p>
         <div className="divider divider-vertical">|</div>
-        <div className="carousel w-full relative">
-          return (
-          <div className="carousel-item w-full flex items-center justify-start relative">
+        <div className="carousel md:w-full relative">
+          <div className="carousel-item md:w-full flex items-center justify-start relative">
             {totalSlides > 1 && currentSlideIndex !== 0 && (
               <MdArrowLeft
                 size={25}

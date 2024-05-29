@@ -47,7 +47,7 @@ export default function Projects({ projects = [] }) {
             <p className="md:mt-8 mt-4 text-md">
               {get(project, "description", "")}
             </p>
-            <div className="flex gap-3 md:mt-8 mt-4">
+            <div className="flex items-center gap-3 md:mt-8 mt-4">
               {get(project, "githubLink", "") ? (
                 <Link href={get(project, "githubLink", "")} target="_blank">
                   <button className="btn">

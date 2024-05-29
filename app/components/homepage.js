@@ -11,14 +11,15 @@ import Contact from "./contact";
 
 export default async function Homepage() {
   const session = await getAuthSession();
-  const primaryColor = session?.primaryColor || "#854408";
+  const primaryColor = session?.primaryColor || "#3498DB";
   const response = await axios.get(
     process.env.NEXT_PUBLIC_APP_URL + "/api/user"
   );
   const data = response?.data;
   return (
     <div className="h-screen">
-      <div className="navbar pl-8 pr-6 py-4">
+      <div className={`navbar pl-8 pr-6 py-4 fixed top-0 left-0 right-0  z-50`}>
+        {" "}
         <div className="flex-1">
           <a className="font-medium no-underline text-black text-4xl">
             <span style={{ color: primaryColor, fontWeight: 700 }}></span>

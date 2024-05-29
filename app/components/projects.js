@@ -22,36 +22,32 @@ export default function Projects({ projects = [] }) {
   };
 
   return (
-    <div className="flex flex-col m-24" id="projects">
-      <div className="flex flex-col content-center items-center">
-        <h2 className="text-3xl text-primary font-bold mb-16">Projects</h2>
+    <div className="flex flex-col md:m-24 m-8" id="projects">
+      <div className="flex flex-col ustify-center md:items-center">
+        <h2 className="text-3xl text-primary font-bold mb-8">Projects</h2>
       </div>
 
       {currentProjects.map((project, index) => (
         <div
           key={index}
-          className="flex items-start gap-9 mb-8"
-          style={{
-            height: "300px",
-            // border: "1px solid silver",
-            // borderRadius: "4px",
-            // padding: "8px",
-          }}
+          className="grid md:grid-cols-5 flex items-center gap-6 md:mb-8 mb-16"
         >
-          <div style={{ width: "45%", height: "290px" }}>
+          <div className="md:col-span-2">
             <img
               src={get(project, "image", "")}
               style={{
                 width: "100%",
-                height: "100%",
+                height: "250px",
                 borderRadius: "8px",
               }}
             />
           </div>
-          <div className="flex flex-col" style={{ width: "55%" }}>
+          <div className="flex flex-col md:col-span-3">
             <h2 className="text-xl font-semibold">{get(project, "title")}</h2>
-            <p className="mt-8 text-md">{get(project, "description", "")}</p>
-            <div className="flex gap-3 mt-8">
+            <p className="md:mt-8 mt-4 text-md">
+              {get(project, "description", "")}
+            </p>
+            <div className="flex gap-3 md:mt-8 mt-4">
               {get(project, "githubLink", "") ? (
                 <Link href={get(project, "githubLink", "")} target="_blank">
                   <button className="btn">

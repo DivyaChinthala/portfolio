@@ -12,6 +12,10 @@ export default function Navigation() {
   useEffect(() => {
     if (!session) {
       createSession();
+    } else {
+      update({
+        activeNavItem: "home",
+      });
     }
   }, []);
 
@@ -83,7 +87,7 @@ export default function Navigation() {
       </p>
 
       {/* Dropdown Menu for small and medium screens */}
-      <div className="relative md:hidden">
+      <div className="relative md:hidden" onBlur={() => setShowMenu(false)}>
         <MdMenu
           className="cursor-pointer block"
           size={25}
@@ -93,7 +97,7 @@ export default function Navigation() {
           <ul className="absolute menu right-0 mt-2 bg-base-200 rounded-box ">
             <li>
               <a
-                className={`font-medium hover:bg-white no-underline cursor-pointer block ${
+                className={`font-medium no-underline cursor-pointer block ${
                   activeNavItem == "home" ? "text-primary" : ""
                 }`}
                 onClick={() => {

@@ -2,31 +2,47 @@
 
 import { get } from "lodash";
 import { signIn, useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { MdMenu } from "react-icons/md";
 
 export default function Navigation() {
   const { data: session, update } = useSession();
+  const [showMenu, setShowMenu] = useState(false);
+
   useEffect(() => {
     if (!session) {
       createSession();
+    } else {
+      update({
+        activeNavItem: "home",
+      });
     }
   }, []);
+
   const createSession = async () => {
-    const result = await signIn("credentials", {
+    await signIn("credentials", {
       redirect: false,
     });
   };
+
   const activeNavItem = get(session, "activeNavItem", "home");
-  const primaryColor = get(session, "primaryColor", "#a991f7");
+  const primaryColor = get(session, "primary", "#a991f7");
+
   const onClickNavItem = (key) => {
     update({
       activeNavItem: key,
     });
   };
+
+  const toggleMenu = () => {
+    setShowMenu((prevValue) => !prevValue);
+  };
+
   return (
-    <div className="flex-1 gap-8">
+    <div className="flex gap-8 relative">
+      {/* Regular Navigation for large screens */}
       <p
-        className={`font-medium no-underline text-black textbase text-primary-content cursor-pointer`}
+        className={`font-medium no-underline cursor-pointer hidden md:block`}
         style={
           activeNavItem == "home"
             ? { borderBottom: `2px solid ${primaryColor}`, color: primaryColor }
@@ -34,10 +50,10 @@ export default function Navigation() {
         }
         onClick={() => onClickNavItem("home")}
       >
-        Home
+        <a href="#home">Home</a>
       </p>
       <p
-        className="font-medium no-underline text-black textbase cursor-pointer"
+        className="font-medium no-underline cursor-pointer hidden md:block"
         onClick={() => onClickNavItem("about")}
         style={
           activeNavItem == "about"
@@ -45,32 +61,21 @@ export default function Navigation() {
             : {}
         }
       >
-        About
+        <a href="#about">About</a>
       </p>
       <p
-        className="font-medium no-underline text-black textbase cursor-pointer"
-        onClick={() => onClickNavItem("services")}
+        className="font-medium no-underline cursor-pointer hidden md:block"
+        onClick={() => onClickNavItem("projects")}
         style={
-          activeNavItem == "services"
+          activeNavItem == "projects"
             ? { borderBottom: `2px solid ${primaryColor}`, color: primaryColor }
             : {}
         }
       >
-        Services
+        <a href="#projects">Projects</a>
       </p>
       <p
-        className="font-medium no-underline text-black textbase cursor-pointer"
-        onClick={() => onClickNavItem("portfolio")}
-        style={
-          activeNavItem == "portfolio"
-            ? { borderBottom: `2px solid ${primaryColor}`, color: primaryColor }
-            : {}
-        }
-      >
-        Portfolio
-      </p>
-      <p
-        className="font-medium no-underline text-black textbase cursor-pointer"
+        className="font-medium no-underline cursor-pointer hidden md:block"
         onClick={() => onClickNavItem("contact")}
         style={
           activeNavItem == "contact"
@@ -80,6 +85,75 @@ export default function Navigation() {
       >
         Contact
       </p>
+
+      {/* Dropdown Menu for small and medium screens */}
+      <div className="relative md:hidden" onBlur={() => setShowMenu(false)}>
+        <MdMenu
+          className="cursor-pointer block"
+          size={25}
+          onClick={() => toggleMenu()}
+        />
+        {showMenu && (
+          <ul className="absolute menu right-0 mt-2 bg-base-200 rounded-box ">
+            <li>
+              <a
+                className={`font-medium no-underline cursor-pointer block ${
+                  activeNavItem == "home" ? "text-primary" : ""
+                }`}
+                onClick={() => {
+                  onClickNavItem("home");
+                  toggleMenu();
+                }}
+                href="#home"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                className={`font-medium no-underline cursor-pointer block ${
+                  activeNavItem == "about" ? "text-primary" : ""
+                }`}
+                onClick={() => {
+                  onClickNavItem("about");
+                  toggleMenu();
+                }}
+                href="#about"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                className={`font-medium no-underline cursor-pointer block ${
+                  activeNavItem == "projects" ? "text-primary" : ""
+                }`}
+                onClick={() => {
+                  onClickNavItem("projects");
+                  toggleMenu();
+                }}
+                href="#projects"
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                className={`font-medium no-underline cursor-pointer block ${
+                  activeNavItem == "contact" ? "text-primary" : ""
+                }`}
+                onClick={() => {
+                  onClickNavItem("contact");
+                  toggleMenu();
+                }}
+                href="#contact"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

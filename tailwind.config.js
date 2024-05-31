@@ -18,11 +18,11 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: "#a991f7",
-          secondary: "#f6d860",
-          accent: "#37cdbe",
-          neutral: "#3d4451",
-          "base-100": "#ffffff",
+          text: "#FFFFFF", // White Text
+          primary: "#3498DB", // Blue
+          secondary: "#2ECC71", // Green
+          accent: "#ff2b64", // Red
+          neutral: "#BDC3C7", // Light Gray
         },
       },
     ],

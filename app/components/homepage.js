@@ -1,4 +1,3 @@
-import { getAuthSession } from "../api/auth/[...nextauth]/route";
 import MainSection from "./mainSection";
 import axios from "axios";
 import { get } from "lodash";
@@ -7,6 +6,7 @@ import AboutSection from "./aboutSection";
 import Projects from "./projects";
 import Contact from "./contact";
 import Navbar from "./navbar";
+import { getAuthSession } from "../api/authOptions";
 
 export default async function Homepage() {
   const session = await getAuthSession();

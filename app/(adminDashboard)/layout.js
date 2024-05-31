@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
-import { getAuthSession } from "../api/auth/[...nextauth]/route";
 import { Inter } from "next/font/google";
 import AdminNavigation from "../components/adminNavigation";
+import { getAuthSession } from "../api/authOptions";
 
 const inter = Inter({ subsets: ["latin"] });
 

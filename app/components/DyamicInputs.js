@@ -46,6 +46,7 @@ const DynamicInputs = ({ inputs, setInputs }) => {
                 <input
                   type="text"
                   value={input[key]}
+                  key={key + input.id}
                   onChange={(event) => handleChange(input.id, key, event)}
                   style={{ marginRight: "10px" }}
                   className="input input-bordered w-full"

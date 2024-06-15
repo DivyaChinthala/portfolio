@@ -45,7 +45,7 @@ export default function SkillsSection({ skills = [] }) {
                 return IconComponent ? (
                   <div
                     className="tooltip"
-                    // style={{ zIndex: 1000 }}
+                    // style={{ zIndex: 100 }}
                     // data-tip={skill.text}
                     // data-bs-placement="bottom"
                   >

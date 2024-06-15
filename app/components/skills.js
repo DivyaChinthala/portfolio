@@ -21,7 +21,7 @@ export default function SkillsSection({ skills = [] }) {
     currentSlideIndex === 0 ? totalSlides - 1 : currentSlideIndex - 1;
   const nextSlide =
     currentSlideIndex === totalSlides - 1 ? 0 : currentSlideIndex + 1;
-  console.log(totalSlides, currentSlideIndex);
+  // console.log(totalSlides, currentSlideIndex);
   return (
     <div className="flex flex-col md:items-center md:justify-center md:mt-8 m-8">
       <div className="flex items-center md:justify-center  md:w-1/2">

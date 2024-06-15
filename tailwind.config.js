@@ -18,12 +18,11 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          text: "#000000", // White Text
+          text: "#FFFFFF", // White Text
           primary: "#8DBF41", // "#3498DB", // Blue
           secondary: "#2ECC71", // Green
           accent: "#ff2b64", // Red
           neutral: "#BDC3C7", // Light Gray,
-          "base-200": "#000000",
         },
       },
     ],

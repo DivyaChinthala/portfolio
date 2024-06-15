@@ -87,14 +87,17 @@ export default function Navigation() {
       </p>
 
       {/* Dropdown Menu for small and medium screens */}
-      <div className="relative md:hidden" onBlur={() => setShowMenu(false)}>
+      <div className="relative md:hidden">
         <MdMenu
           className="cursor-pointer block"
           size={25}
           onClick={() => toggleMenu()}
         />
         {showMenu && (
-          <ul className="absolute menu right-0 mt-2 bg-base-200 rounded-box ">
+          <ul
+            className="absolute menu right-0 mt-2 text-black bg-white rounded-box "
+            onMouseLeave={() => setShowMenu(false)}
+          >
             <li>
               <a
                 className={`font-medium no-underline cursor-pointer block ${

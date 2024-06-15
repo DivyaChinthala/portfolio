@@ -2,7 +2,7 @@
 
 import { MongoClient } from "mongodb";
 
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI + "?retryWrites=true&w=majority";
 
 let client;
 let clientPromise;

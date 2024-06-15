@@ -54,7 +54,7 @@ export const options: any = {
       return {
         ...session,
         activeNavItem: token.activeNavItem || "home",
-        text: "#0000", // White Text
+        text: "#FFFFFF", // White Text
         primary: "#8DBF41", // Blue
         secondary: "#2ECC71", // Green
         accent: "#ff2b64", // Red

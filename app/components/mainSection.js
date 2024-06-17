@@ -10,7 +10,10 @@ export default function MainSection({ topSection }) {
   const primaryColor = get(session, "primary");
   const socialMediaIcons = get(topSection, "socialMediaIcons", []);
   return (
-    <div className="flex flex-col md:items-center md:justify-center md:mt-48 mt-24 ml-8 mr-8">
+    <div
+      className="flex flex-col md:items-center md:justify-center md:mt-48 mt-24 ml-8 mr-8"
+      id="home"
+    >
       <h2 className="text-3xl font-bold flex items-center  md:w-1/2">
         {get(topSection, "mainHeading", "Fron-End React Developer")}{" "}
         <MdOutlineComputer className="ml-4" color={primaryColor} />

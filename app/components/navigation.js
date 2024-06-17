@@ -83,7 +83,7 @@ export default function Navigation() {
             : {}
         }
       >
-        Contact
+        <a href="#contact">Contact</a>
       </p>
 
       {/* Dropdown Menu for small and medium screens */}

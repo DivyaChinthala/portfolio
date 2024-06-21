@@ -1,15 +1,16 @@
 import { get } from "lodash";
+import Image from "next/image";
 
 export default function AboutSection({ about }) {
-  const image = get(about, "image");
+  const imageItem = get(about, "image");
   return (
     <div
       className="flex md:flex-row flex-col gap-6 md:h-1/2 md:m-24 m-8 "
       id="about"
     >
       <div className="md:w-1/2">
-        <img
-          src={image}
+        <Image
+          src={imageItem}
           style={{ width: "100%", height: "80%", borderRadius: "8px" }}
         />
       </div>

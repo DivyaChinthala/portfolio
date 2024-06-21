@@ -1,12 +1,5 @@
-import Homepage from "./components/homepage";
+import Homepage from "./components1/homepage";
 
 export default function Home() {
-  return (
-    <div
-      className="h-screen overflow-scroll"
-      style={{ backgroundColor: "#F2F2F2" }}
-    >
-      <Homepage />
-    </div>
-  );
+  return <Homepage />;
 }

@@ -1,23 +1,31 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import { logo } from "../../assets/index";
 import Image from "next/image";
+import { iconSets } from "../../lib/icon";
 
-const Footer = () => {
+const Footer = ({ logo, socialMediaIcons }) => {
   return (
     <div className="w-full py-20 h-auto border-b-[1px] border-b-black grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-4 gap-8">
       <div className="w-full h-full flex flex-col gap-8">
-        <Image className="w-32" src={logo} alt="logo" />
+        {logo?.type == "image" ? (
+          <Image
+            className="w-32"
+            src={logo?.image?.url}
+            alt="logo"
+            width={50}
+            height={50}
+          />
+        ) : (
+          <p className="text-3xl font-bold">{logo?.text}</p>
+        )}
         <div className="flex gap-4">
-          <span className="bannerIcon">
-            <FaFacebookF />
-          </span>
-          <span className="bannerIcon">
-            <FaTwitter />
-          </span>
-          <span className="bannerIcon">
-            <FaLinkedinIn />
-          </span>
+          {socialMediaIcons?.map((icon) => {
+            const SelectedIcon = iconSets?.[icon?.icon];
+            return (
+              <span className="bannerIcon">
+                <SelectedIcon />
+              </span>
+            );
+          })}
         </div>
       </div>
       <div className="w-full h-full">
@@ -57,7 +65,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div className="w-full h-full">
+      {/* <div className="w-full h-full">
         <h3 className="text-xl uppercase text-designColor tracking-wider">
           RESOURCES
         </h3>
@@ -93,8 +101,8 @@ const Footer = () => {
             </span>
           </li>
         </ul>
-      </div>
-      <div className="w-full h-full">
+      </div> */}
+      {/* <div className="w-full h-full">
         <h3 className="text-xl uppercase text-designColor tracking-wider">
           DEVELOPERS
         </h3>
@@ -130,7 +138,7 @@ const Footer = () => {
             </span>
           </li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

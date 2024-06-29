@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
-import Title from '../layouts/Title';
-import ContactLeft from './ContactLeft';
+import React, { useState } from "react";
+import Title from "../layouts/Title";
+import ContactLeft from "./ContactLeft";
 
-const Contact = () => {
+const Contact = ({ data, socialMediaIcons }) => {
   const [username, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -55,7 +55,7 @@ const Contact = () => {
       </div>
       <div className="w-full">
         <div className="w-full h-auto flex flex-col lgl:flex-row justify-between">
-          <ContactLeft />
+          <ContactLeft data={data} socialMediaIcons={socialMediaIcons} />
           <div className="w-full lgl:w-[60%] h-full py-10 bg-gradient-to-r from-[#1e2024] to-[#23272b] flex flex-col gap-8 p-4 lgl:p-8 rounded-lg shadow-shadowOne">
             <form className="w-full flex flex-col gap-4 lgl:gap-6 py-2 lgl:py-5">
               {errMsg && (
@@ -164,6 +164,6 @@ const Contact = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Contact
+export default Contact;

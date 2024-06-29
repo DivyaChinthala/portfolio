@@ -7,12 +7,16 @@ import { logo } from "../../assets/index";
 import { navLinksdata } from "../../constants";
 import Image from "next/image";
 
-const Navbar = () => {
+const Navbar = ({ data }) => {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <div className="w-full h-24 sticky top-0 z-50 bg-bodyColor mx-auto flex justify-between items-center font-titleFont border-b-[1px] border-b-gray-600">
       <div>
-        <Image src={logo} alt="logo" />
+        {data?.type == "image" ? (
+          <Image src={data?.image?.url} alt="logo" width={50} height={50} />
+        ) : (
+          <p className="text-3xl font-bold">{data?.text}</p>
+        )}
       </div>
       <div>
         <ul className="hidden mdl:inline-flex items-center gap-6 lg:gap-10">

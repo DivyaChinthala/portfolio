@@ -1,15 +1,18 @@
-import React from 'react'
+import React from "react";
 import { HiArrowRight } from "react-icons/hi";
+import { iconSets } from "../../lib/icon";
 
-const Card = ({item:{title,des,icon}}) => {
+const Card = ({ item: { name, description, icon } }) => {
+  const SelectedIcon = iconSets?.[icon];
   return (
     <div className="w-full px-12 h-80 py-10 rounded-lg shadow-shadowOne flex items-center bg-gradient-to-r from-bodyColor to-[#202327] group hover:bg-gradient-to-b hover:from-black hover:to-[#1e2024] transition-colors duration-100 group">
       <div className="h-72 overflow-y-hidden">
         <div className="flex h-full flex-col gap-10 translate-y-16 group-hover:translate-y-0 transition-transform duration-500">
           <div className="w-10 h-8 flex flex-col justify-between">
-        
             {icon ? (
-              <span className="text-5xl text-designColor">{icon}</span>
+              <span className="text-5xl text-designColor">
+                <SelectedIcon />
+              </span>
             ) : (
               <>
                 <span className="w-full h-[2px] rounded-lg bg-designColor inline-flex"></span>
@@ -21,9 +24,9 @@ const Card = ({item:{title,des,icon}}) => {
           </div>
           <div className="flex flex-col gap-6">
             <h2 className="text-xl md:text-2xl font-titleFont font-bold text-gray-300">
-              {title}
+              {name}
             </h2>
-            <p className="base">{des}</p>
+            <p className="base">{description}</p>
             <span className="text-2xl text-designColor">
               <HiArrowRight />
             </span>
@@ -32,6 +35,6 @@ const Card = ({item:{title,des,icon}}) => {
       </div>
     </div>
   );
-}
+};
 
-export default Card
+export default Card;

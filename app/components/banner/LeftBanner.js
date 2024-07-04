@@ -1,6 +1,9 @@
 import React from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Media from "./Media";
+import { MdOutlineFileDownload } from "react-icons/md";
+import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 
 const LeftBanner = ({ data }) => {
   const roles = data?.roles ?? [];
@@ -32,6 +35,25 @@ const LeftBanner = ({ data }) => {
         <p className="text-base font-bodyFont leading-6 tracking-wide">
           {data?.description}
         </p>
+        <div className="mt-2">
+          <div className="flex gap-4">
+            <ScrollLink
+              to={"contact"}
+              spy={true}
+              activeClass="active"
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <button className="btn">Hire me</button>
+            </ScrollLink>
+            <Link href={data?.resume?.url} target="_blank">
+              <button className="btn">
+                <MdOutlineFileDownload /> Download Resume
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
       {/* Media */}
       <Media socialMediaIcons={socialMediaIcons} skills={skills} />

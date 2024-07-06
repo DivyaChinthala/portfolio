@@ -2,7 +2,7 @@ import React from "react";
 import Title from "../layouts/Title";
 import ProjectsCard from "./ProjectsCard";
 
-const Projects = ({ data }) => {
+const Projects = ({ data, setShowMoreInfo, setProjectId }) => {
   return (
     <section
       id="projects"
@@ -23,6 +23,9 @@ const Projects = ({ data }) => {
               src={project?.image?.url}
               gitLink={project?.githubLink}
               demo={project?.demoUrl}
+              id={project?.id}
+              setShowMoreInfo={setShowMoreInfo}
+              setProjectId={setProjectId}
             />
           );
         })}

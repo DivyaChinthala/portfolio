@@ -12,11 +12,13 @@ import { useState } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import ServiceSteps from "./components/features/serviceSteps";
+import ProjectMoreInfo from "./components/projects/projectMoreInfo";
 
 export default function Homepage({ data }) {
   const [showSteps, setShowSteps] = useState(false);
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const [projectId, setProjectId] = useState(null);
   const [serviceId, setServiceId] = useState(null);
-  console.log(showSteps);
   return (
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
       <Navbar data={data?.logo} />
@@ -27,7 +29,11 @@ export default function Homepage({ data }) {
           setServiceId={setServiceId}
           setShowSteps={setShowSteps}
         />
-        <Projects data={data?.projects} />
+        <Projects
+          data={data?.projects}
+          setProjectId={setProjectId}
+          setShowMoreInfo={setShowMoreInfo}
+        />
         <Resume
           education={data?.education}
           skills={data?.skills}
@@ -58,6 +64,24 @@ export default function Homepage({ data }) {
                 (service) => service.id == serviceId
               )}
               setShowSteps={setShowSteps}
+            />
+          </Drawer>
+        )}
+        {showMoreInfo && (
+          <Drawer
+            open={showMoreInfo}
+            onClose={() => setShowMoreInfo(false)}
+            direction="right"
+            className="bla bla bla"
+            style={{
+              width: "50%",
+            }}
+          >
+            <ProjectMoreInfo
+              project={data?.projects?.find(
+                (project) => project.id == projectId
+              )}
+              setShowMoreInfo={setShowMoreInfo}
             />
           </Drawer>
         )}

@@ -23,7 +23,7 @@ export default function Homepage({ data }) {
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
       <Navbar data={data?.logo} />
       <div className="max-w-screen-xl mx-auto">
-        <Banner data={data?.topSection} />
+        <Banner data={data?.topSection} contact={data?.contact} />
         <Features
           data={data?.services}
           setServiceId={setServiceId}
@@ -74,7 +74,7 @@ export default function Homepage({ data }) {
             direction="right"
             className="bla bla bla"
             style={{
-              width: "50%",
+              width: "65%",
             }}
           >
             <ProjectMoreInfo

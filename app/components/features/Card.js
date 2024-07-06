@@ -35,8 +35,10 @@ const Card = ({
             <span className="text-2xl text-designColor cursor-pointer">
               <HiArrowRight
                 onClick={() => {
+                  // if (steps.length > 0) {
                   setShowSteps(true);
                   setServiceId(id);
+                  // }
                 }}
               />
             </span>

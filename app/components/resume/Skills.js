@@ -6,16 +6,16 @@ const Skills = ({ data }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.5 } }}
-      className="w-full flex flex-col lgl:flex-row gap-10 lgl:gap-20"
+      className="w-full flex flex-col lgl:grid grid-cols-2 gap-6"
     >
       {data?.map((section) => {
         const skills = section?.skills ?? [];
         return (
-          <div className="w-full lgl:w-1/2">
+          <div className="w-full">
             <div className="py-12 font-titleFont flex flex-col gap-4">
-              <p className="text-sm text-designColor tracking-[4px] uppercase">
+              {/* <p className="text-sm text-designColor tracking-[4px] uppercase">
                 Features
-              </p>
+              </p> */}
               <h2 className="text-3xl md:text-4xl font-bold">
                 {section?.name}
               </h2>
@@ -32,11 +32,15 @@ const Skills = ({ data }) => {
                         initial={{ x: "-100%", opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.5 }}
-                        className={`${
-                          skill?.percentage == 100
-                            ? "w-full"
-                            : `w-[${skill?.percentage}%]`
-                        } h-full bg-gradient-to-r from-blue-600 via-pink-500 to-red-500 rounded-md relative`}
+                        style={{
+                          width:
+                            skill?.percentage == 100
+                              ? "100%"
+                              : `${skill?.percentage}%`,
+                        }}
+                        className={`
+                          
+                         h-full bg-gradient-to-r from-blue-600 via-pink-500 to-red-500 rounded-md relative`}
                       >
                         <span className="absolute -top-7 right-0">
                           {skill?.percentage}%

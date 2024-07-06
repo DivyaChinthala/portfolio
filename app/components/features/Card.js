@@ -1,8 +1,13 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
 import { iconSets } from "../../lib/icon";
 
-const Card = ({ item: { name, description, icon } }) => {
+const Card = ({
+  item: { name, description, id, icon, steps },
+  setServiceId,
+  setShowSteps,
+}) => {
   const SelectedIcon = iconSets?.[icon];
   return (
     <div className="w-full px-12 h-80 py-10 rounded-lg shadow-shadowOne flex items-center bg-gradient-to-r from-bodyColor to-[#202327] group hover:bg-gradient-to-b hover:from-black hover:to-[#1e2024] transition-colors duration-100 group">
@@ -27,8 +32,13 @@ const Card = ({ item: { name, description, icon } }) => {
               {name}
             </h2>
             <p className="base">{description}</p>
-            <span className="text-2xl text-designColor">
-              <HiArrowRight />
+            <span className="text-2xl text-designColor cursor-pointer">
+              <HiArrowRight
+                onClick={() => {
+                  setShowSteps(true);
+                  setServiceId(id);
+                }}
+              />
             </span>
           </div>
         </div>

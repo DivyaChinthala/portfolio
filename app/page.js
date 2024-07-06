@@ -1,4 +1,4 @@
-import Homepage from "./components1/homepage";
+import Homepage from "./homepage";
 import axios from "axios";
 import { headers } from "next/headers";
 

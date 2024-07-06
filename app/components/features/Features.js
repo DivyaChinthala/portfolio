@@ -1,7 +1,9 @@
 import React from "react";
 import Title from "../layouts/Title";
 import Card from "./Card";
-const Features = ({ data }) => {
+
+const Features = ({ data, setServiceId, setShowSteps }) => {
+  console.log(data);
   return (
     <section
       id="services"
@@ -10,7 +12,12 @@ const Features = ({ data }) => {
       <Title title="Services" des="What I Do" />
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-20">
         {data?.map((item) => (
-          <Card item={item} key={item.id} />
+          <Card
+            item={item}
+            key={item.id}
+            setServiceId={setServiceId}
+            setShowSteps={setShowSteps}
+          />
         ))}
       </div>
     </section>

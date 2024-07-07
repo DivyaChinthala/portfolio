@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Title from "../layouts/Title";
 import ContactLeft from "./ContactLeft";
+import axios from "axios";
 
 const Contact = ({ data, socialMediaIcons }) => {
   const [username, setUsername] = useState("");
@@ -10,6 +11,7 @@ const Contact = ({ data, socialMediaIcons }) => {
   const [message, setMessage] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // ========== Email Validation start here ==============
   const emailValidation = () => {
@@ -19,7 +21,7 @@ const Contact = ({ data, socialMediaIcons }) => {
   };
   // ========== Email Validation end here ================
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
     if (username === "") {
       setErrMsg("Username is required!");
@@ -34,15 +36,30 @@ const Contact = ({ data, socialMediaIcons }) => {
     } else if (message === "") {
       setErrMsg("Message is required!");
     } else {
-      setSuccessMsg(
-        `Thank you dear ${username}, Your Messages has been sent Successfully!`
-      );
-      setErrMsg("");
-      setUsername("");
-      setPhoneNumber("");
-      setEmail("");
-      setSubject("");
-      setMessage("");
+      setLoading(true);
+      const response = await axios.post("/api/send-email", {
+        to: data?.email,
+        subject: subject,
+        from: email,
+        text: message,
+        phoneNumber: phoneNumber,
+      });
+      // console.log(response);
+      if (response.status == 200 || response.status == 201) {
+        setLoading(false);
+        setSuccessMsg(
+          `Thank you dear ${username}, Your Messages has been sent Successfully!`
+        );
+        setErrMsg("");
+        setUsername("");
+        setPhoneNumber("");
+        setEmail("");
+        setSubject("");
+        setMessage("");
+      } else {
+        setLoading(false);
+        setErrMsg("Error occurred while sending mail");
+      }
     }
   };
   return (
@@ -57,7 +74,7 @@ const Contact = ({ data, socialMediaIcons }) => {
         <div className="w-full h-auto flex flex-col lgl:flex-row justify-between">
           <ContactLeft data={data} socialMediaIcons={socialMediaIcons} />
           <div className="w-full lgl:w-[60%] h-full py-10 bg-gradient-to-r from-[#1e2024] to-[#23272b] flex flex-col gap-8 p-4 lgl:p-8 rounded-lg shadow-shadowOne">
-            <form className="w-full flex flex-col gap-4 lgl:gap-6 py-2 lgl:py-5">
+            <div className="w-full flex flex-col gap-4 lgl:gap-6 py-2 lgl:py-5">
               {errMsg && (
                 <p className="py-3 bg-gradient-to-r from-[#1e2024] to-[#23272b] shadow-shadowOne text-center text-orange-500 text-base tracking-wide animate-bounce">
                   {errMsg}
@@ -145,6 +162,9 @@ const Contact = ({ data, socialMediaIcons }) => {
                   onClick={handleSend}
                   className="w-full h-12 bg-[#141518] rounded-lg text-base text-gray-400 tracking-wider uppercase hover:text-white duration-300 hover:border-[1px] hover:border-designColor border-transparent"
                 >
+                  {loading && (
+                    <span className="loading loading-spinner loading-md"></span>
+                  )}{" "}
                   Send Message
                 </button>
               </div>
@@ -158,7 +178,7 @@ const Contact = ({ data, socialMediaIcons }) => {
                   {successMsg}
                 </p>
               )}
-            </form>
+            </div>
           </div>
         </div>
       </div>

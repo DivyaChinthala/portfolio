@@ -6,7 +6,7 @@ const Skills = ({ data }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.5 } }}
-      className="w-full flex flex-col lgl:grid grid-cols-2 gap-6"
+      className="w-full flex flex-col lgl:grid grid-cols-2 gap-6 px-6"
     >
       {data?.map((section) => {
         const skills = section?.skills ?? [];

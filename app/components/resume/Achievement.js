@@ -7,14 +7,14 @@ const Achievement = ({ data }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.5 } }}
-      className="py-12 font-titleFont flex gap-20"
+      className="py-12 font-titleFont flex gap-20 px-6"
     >
       <div>
         <div className="py-12 font-titleFont flex flex-col gap-4">
           <h2 className="text-4xl font-bold">My Achievements</h2>
         </div>
         <div
-          className={`mt-14 w-full h-[${
+          className={`mt-3 w-full h-[${
             data?.length * 300
           }px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10`}
         >

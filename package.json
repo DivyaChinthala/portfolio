@@ -15,6 +15,7 @@
     "mongodb": "^6.6.2",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
+    "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@types/node": "20.12.11",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "18.3.1",
     "@types/react-slick": "^0.23.13",
     "daisyui": "^4.11.1",

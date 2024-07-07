@@ -28,7 +28,7 @@ const LeftBanner = ({ data, contact }) => {
     );
   };
   return (
-    <div className="w-full lgl:w-1/2 flex flex-col gap-20">
+    <div className="w-full lgl:w-1/2 flex flex-col gap-12">
       <div className="flex flex-col gap-5">
         <h4 className=" text-lg font-normal">WELCOME TO MY WORLD</h4>
         <h1 className="text-6xl font-bold text-white">
@@ -69,7 +69,11 @@ const LeftBanner = ({ data, contact }) => {
         </div>
       </div>
       {/* Media */}
-      <Media socialMediaIcons={socialMediaIcons} skills={skills} />
+      <Media
+        socialMediaIcons={socialMediaIcons}
+        skills={skills}
+        isRightBanner={false}
+      />
     </div>
   );
 };

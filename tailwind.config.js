@@ -22,13 +22,13 @@ module.exports = {
         titleFont: ["Montserrat", "sans-serif"],
       },
       colors: {
-        bodyColor: "#0f172a", // Dark Navy
-        lightText: "#cbd5e1", // Light Gray
-        boxBg: "linear-gradient(145deg, #0d1a2b, #1b2b3d)", // Dark Navy Gradient
-        designColor: "#ff4500", // Orange Red
+        bodyColor: "#212428",
+        lightText: "#c4cfde",
+        boxBg: "linear-gradient(145deg, #1e2024, #23272b)",
+        designColor: "#ff014f",
       },
       boxShadow: {
-        shadowOne: "10px 10px 19px #0d1a2b, -10px -10px 19px #1b2b3d",
+        shadowOne: "10px 10px 19px #1c1e22, -10px -10px 19px #262a2e",
       },
     },
   },
@@ -36,11 +36,11 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          text: "#E0E7FF", // Very Light Blue
-          primary: "#6C63FF", // Purple
-          secondary: "#5CDB95", // Light Green
-          accent: "#FF652F", // Bright Orange
-          neutral: "#A5B1C2", // Gray
+          text: "#FFFFFF", // White Text
+          primary: "#8DBF41", // "#3498DB", // Blue
+          secondary: "#2ECC71", // Green
+          accent: "#ff2b64", // Red
+          neutral: "#BDC3C7", // Light Gray,
         },
       },
     ],

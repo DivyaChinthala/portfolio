@@ -17,7 +17,7 @@ export default function ProjectMoreInfo({ project, setShowMoreInfo }) {
     setIsMoreInfoOpened(value);
   };
   return (
-    <div className="bg-bodyColor h-screen p-6 overflow-y-scroll">
+    <div className="bg-bodyColor h-screen lgl:p-6 p-3 overflow-y-scroll">
       <div className="flex items-center ">
         <h2 className="text-xl font-bold">{project?.name}</h2>
         <IoMdClose

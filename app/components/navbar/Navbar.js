@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import { logo } from "../../assets/index";
 import { navLinksdata } from "../../constants";
 import Image from "next/image";
+import { iconSets } from "../../lib/icon";
 
-const Navbar = ({ data }) => {
+const Navbar = ({ data, topSection }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const socialMediaIcons = topSection?.socialMediaIcons ?? [];
+  const roles = topSection?.roles ?? [];
   return (
     <div className="w-full h-24 sticky top-0 z-50 bg-bodyColor mx-auto flex justify-between items-center font-titleFont border-b-[1px] border-b-gray-600">
       <div>
@@ -48,11 +49,18 @@ const Navbar = ({ data }) => {
           <div className="w-[80%] h-screen overflow-scroll absolute top-0 left-0 bg-gray-900 p-4 scrollbar-hide">
             <div className="flex flex-col gap-8 py-2 relative">
               <div>
-                <Image className="w-32" src={logo} alt="logo" />
+                {data?.type == "image" ? (
+                  <Image
+                    src={data?.image?.url}
+                    alt="logo"
+                    width={50}
+                    height={50}
+                  />
+                ) : (
+                  <p className="text-3xl font-bold">{data?.text}</p>
+                )}
                 <p className="text-sm text-gray-400 mt-2">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Earum soluta perspiciatis molestias enim cum repellat, magnam
-                  exercitationem distinctio aliquid nam.
+                  Hi, I'm {topSection?.name} a {roles?.[0]?.role}
                 </p>
               </div>
               <ul className="flex flex-col gap-4">
@@ -80,15 +88,16 @@ const Navbar = ({ data }) => {
                   Find me in
                 </h2>
                 <div className="flex gap-4">
-                  <span className="bannerIcon">
-                    <FaFacebookF />
-                  </span>
-                  <span className="bannerIcon">
-                    <FaTwitter />
-                  </span>
-                  <span className="bannerIcon">
-                    <FaLinkedinIn />
-                  </span>
+                  {socialMediaIcons?.map((icon) => {
+                    const SelectedIcon = iconSets?.[icon?.icon];
+                    return (
+                      <Link href={icon?.url} target="_blank">
+                        <span className="bannerIcon">
+                          <SelectedIcon />
+                        </span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
               <span

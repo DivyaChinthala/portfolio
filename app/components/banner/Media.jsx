@@ -8,7 +8,7 @@ const Media = ({ socialMediaIcons, skills, isRightBanner = true }) => {
       <div>
         {/* <h2 className="text-base uppercase font-titleFont mb-4">Find me in</h2> */}
         {isRightBanner ? (
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-row mt-8 lgl:flex-col lgl:mt-0 gap-4">
             {socialMediaIcons?.map((icon) => {
               const SelectedIcon = iconSets?.[icon?.icon];
               return (

@@ -4,10 +4,10 @@ import Media from "./Media";
 
 const RightBanner = ({ data, socialMediaIcons, skills }) => {
   return (
-    <div className="w-full lgl:w-1/2 flex justify-around items-center">
+    <div className="w-full lgl:w-1/2 flex flex-col lgl:flex-row  justify-around items-center">
       <div className="relative flex justify-center items-center">
         <Image
-          className="absolute w-[300px] h-[400px] lgl:w-[450px] lgl:h-[450px] z-10 flex justify-center items-center rounded-lg"
+          className="absolute w-[300px] h-[300px] lgl:w-[450px] lgl:h-[450px] z-10 flex justify-center items-center rounded-lg"
           src={data?.url || ""}
           alt="bannerImg"
           width={300}

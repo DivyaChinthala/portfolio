@@ -19,9 +19,10 @@ export default function Homepage({ data }) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [projectId, setProjectId] = useState(null);
   const [serviceId, setServiceId] = useState(null);
+  const isMobile = window.innerWidth <= 800;
   return (
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
-      <Navbar data={data?.logo} />
+      <Navbar data={data?.logo} topSection={data?.topSection} />
       <div className="max-w-screen-xl mx-auto">
         <Banner data={data?.topSection} contact={data?.contact} />
         <Features
@@ -56,7 +57,7 @@ export default function Homepage({ data }) {
             direction="right"
             className="bla bla bla"
             style={{
-              width: "50%",
+              width: isMobile ? "98%" : "65%",
             }}
           >
             <ServiceSteps
@@ -74,7 +75,7 @@ export default function Homepage({ data }) {
             direction="right"
             className="bla bla bla"
             style={{
-              width: "65%",
+              width: isMobile ? "98%" : "65%",
             }}
           >
             <ProjectMoreInfo

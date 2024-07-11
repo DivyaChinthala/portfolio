@@ -88,10 +88,10 @@ const Navbar = ({ data, topSection }) => {
                   Find me in
                 </h2>
                 <div className="flex gap-4">
-                  {socialMediaIcons?.map((icon) => {
+                  {socialMediaIcons?.map((icon, index) => {
                     const SelectedIcon = iconSets?.[icon?.icon];
                     return (
-                      <Link href={icon?.url} target="_blank">
+                      <Link href={icon?.url} target="_blank" key={index}>
                         <span className="bannerIcon">
                           <SelectedIcon />
                         </span>

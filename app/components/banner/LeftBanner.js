@@ -32,7 +32,7 @@ const LeftBanner = ({ data, contact }) => {
       <div className="flex flex-col gap-5">
         <h4 className=" text-lg font-normal">WELCOME TO MY WORLD</h4>
         <h1 className="text-6xl font-bold text-white">
-          Hi, I'm{" "}
+          Hi, I&apos;m{" "}
           <span className="text-designColor capitalize">{data?.name}</span>
         </h1>
         <h2 className="text-4xl font-bold text-white">

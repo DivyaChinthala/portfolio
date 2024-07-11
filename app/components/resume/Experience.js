@@ -26,7 +26,7 @@ const Experience = ({ data }) => {
             data?.length * 300
           }px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10"
         >
-          {data?.map((experience) => {
+          {data?.map((experience, index) => {
             const currentYear = new Date().getFullYear();
             const isPresent = currentYear == experience?.toYear;
             return (
@@ -37,6 +37,7 @@ const Experience = ({ data }) => {
                 } - ${isPresent ? "Present" : experience?.toYear})`}
                 result={experience?.location}
                 des={experience?.description}
+                key={index}
               />
             );
           })}

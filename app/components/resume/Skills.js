@@ -8,10 +8,10 @@ const Skills = ({ data }) => {
       animate={{ opacity: 1, transition: { duration: 0.5 } }}
       className="w-full flex flex-col lgl:grid grid-cols-2 gap-6 px-6"
     >
-      {data?.map((section) => {
+      {data?.map((section, index) => {
         const skills = section?.skills ?? [];
         return (
-          <div className="w-full">
+          <div className="w-full" key={index}>
             <div className="py-12 font-titleFont flex flex-col gap-4">
               {/* <p className="text-sm text-designColor tracking-[4px] uppercase">
                 Features
@@ -21,9 +21,9 @@ const Skills = ({ data }) => {
               </h2>
             </div>
             <div className='className="mt-14 w-full flex flex-col gap-6'>
-              {skills?.map((skill) => {
+              {skills?.map((skill, index) => {
                 return (
-                  <div className="overflow-x-hidden">
+                  <div className="overflow-x-hidden" key={index}>
                     <p className="text-sm uppercase font-medium">
                       {skill?.skill}
                     </p>

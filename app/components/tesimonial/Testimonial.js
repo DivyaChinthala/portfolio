@@ -100,7 +100,7 @@ const Testimonial = ({ images }) => {
         <Slider {...settings}>
           {images?.map((image) => {
             return (
-              <div>
+              <div key={image?.url}>
                 <div className="flex items-center justify-center">
                   <img
                     className="rounded-lg"

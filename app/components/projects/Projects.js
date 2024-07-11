@@ -15,7 +15,7 @@ const Projects = ({ data, setShowMoreInfo, setProjectId }) => {
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-14">
-        {data?.map((project) => {
+        {data?.map((project, index) => {
           return (
             <ProjectsCard
               title={project?.name}
@@ -24,6 +24,7 @@ const Projects = ({ data, setShowMoreInfo, setProjectId }) => {
               gitLink={project?.githubLink}
               demo={project?.demoUrl}
               id={project?.id}
+              key={index}
               setShowMoreInfo={setShowMoreInfo}
               setProjectId={setProjectId}
             />

@@ -27,13 +27,14 @@ const Education = ({ data }) => {
             data?.length * 300
           }px]  border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10`}
         >
-          {data?.map((education) => {
+          {data?.map((education, index) => {
             return (
               <ResumeCard
                 title={education?.qualification}
                 subTitle={education?.college}
                 result={education?.cgpa + "/10"}
                 des={education?.description}
+                key={index}
               />
             );
           })}

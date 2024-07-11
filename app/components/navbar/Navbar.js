@@ -60,7 +60,7 @@ const Navbar = ({ data, topSection }) => {
                   <p className="text-3xl font-bold">{data?.text}</p>
                 )}
                 <p className="text-sm text-gray-400 mt-2">
-                  Hi, I'm {topSection?.name} a {roles?.[0]?.role}
+                  Hi, I&apos;m {topSection?.name} a {roles?.[0]?.role}
                 </p>
               </div>
               <ul className="flex flex-col gap-4">

@@ -18,13 +18,14 @@ const Achievement = ({ data }) => {
             data?.length * 300
           }px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10`}
         >
-          {data?.map((achievement) => {
+          {data?.map((achievement, index) => {
             return (
               <ResumeCard
                 title={achievement?.name}
                 subTitle={achievement?.eventOrCompany}
                 result="Success"
                 des={achievement?.description}
+                key={index}
               />
             );
           })}

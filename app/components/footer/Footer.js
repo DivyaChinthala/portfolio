@@ -19,10 +19,10 @@ const Footer = ({ logo, socialMediaIcons }) => {
           <p className="text-3xl font-bold">{logo?.text}</p>
         )}
         <div className="flex gap-4">
-          {socialMediaIcons?.map((icon) => {
+          {socialMediaIcons?.map((icon, index) => {
             const SelectedIcon = iconSets?.[icon?.icon];
             return (
-              <span className="bannerIcon">
+              <span className="bannerIcon" key={index}>
                 <SelectedIcon />
               </span>
             );

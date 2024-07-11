@@ -9,10 +9,10 @@ const Media = ({ socialMediaIcons, skills, isRightBanner = true }) => {
         {/* <h2 className="text-base uppercase font-titleFont mb-4">Find me in</h2> */}
         {isRightBanner ? (
           <div className="flex flex-row mt-8 lgl:flex-col lgl:mt-0 gap-4">
-            {socialMediaIcons?.map((icon) => {
+            {socialMediaIcons?.map((icon, index) => {
               const SelectedIcon = iconSets?.[icon?.icon];
               return (
-                <Link href={icon?.url} target="_blank">
+                <Link href={icon?.url} target="_blank" key={index}>
                   <span className="bannerIcon">
                     <SelectedIcon />
                   </span>
@@ -26,10 +26,10 @@ const Media = ({ socialMediaIcons, skills, isRightBanner = true }) => {
               BEST SKILL ON
             </h2>
             <div className="flex gap-4">
-              {skills?.map((icon) => {
+              {skills?.map((icon, index) => {
                 const SelectedIcon = iconSets?.[icon?.icon];
                 return (
-                  <span className="bannerIcon">
+                  <span className="bannerIcon" key={index}>
                     <SelectedIcon />
                   </span>
                 );

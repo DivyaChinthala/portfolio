@@ -19,7 +19,7 @@ export default function Homepage({ data }) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [projectId, setProjectId] = useState(null);
   const [serviceId, setServiceId] = useState(null);
-  const isMobile = window.innerWidth <= 800;
+  const isMobile = window && window.innerWidth <= 800;
   return (
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
       <Navbar data={data?.logo} topSection={data?.topSection} />

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
-import { iconSets } from "../../lib/icon";
+import { iconSets } from "../../lib/icons";
 
 const Card = ({
   item: { name, description, id, icon, steps },

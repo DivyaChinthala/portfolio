@@ -4,7 +4,7 @@ import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { navLinksdata } from "../../constants";
 import Image from "next/image";
-import { iconSets } from "../../lib/icon";
+import { iconSets } from "../../lib/icons";
 
 const Navbar = ({ data, topSection }) => {
   const [showMenu, setShowMenu] = useState(false);

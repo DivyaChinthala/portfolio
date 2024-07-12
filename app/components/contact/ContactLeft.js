@@ -1,7 +1,7 @@
 import React from "react";
 import { contactImg } from "../../assets/index";
 import Image from "next/image";
-import { iconSets } from "../../lib/icon";
+import { iconSets } from "../../lib/icons";
 
 const ContactLeft = ({ data, socialMediaIcons }) => {
   return (

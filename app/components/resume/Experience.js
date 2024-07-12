@@ -22,9 +22,9 @@ const Experience = ({ data }) => {
           <h2 className="text-4xl font-bold">Job Experience</h2>
         </div>
         <div
-          className="mt-14 w-full  h-[${
+          className="mt-14 w-full h-full lgl:h-[${
             data?.length * 300
-          }px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10"
+          }px] pb-14 border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10"
         >
           {data?.map((experience, index) => {
             const currentYear = new Date().getFullYear();

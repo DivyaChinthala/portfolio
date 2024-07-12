@@ -1,5 +1,5 @@
 import React from "react";
-import { iconSets } from "../../lib/icon";
+import { iconSets } from "../../lib/icons";
 import Link from "next/link";
 
 const Media = ({ socialMediaIcons, skills, isRightBanner = true }) => {

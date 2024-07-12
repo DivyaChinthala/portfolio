@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { iconSets } from "../../lib/icon";
+import { iconSets } from "../../lib/icons";
 import { Link as ScrollLink } from "react-scroll";
 
 const Footer = ({ logo, socialMediaIcons }) => {

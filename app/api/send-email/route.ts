@@ -7,6 +7,7 @@ export async function POST(req, res) {
     const { to, subject, text, from, phoneNumber, name } = body;
 
     try {
+      console.log("Admin Email - ", process.env.ADMIN_EMAIL);
       var transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {

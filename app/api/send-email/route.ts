@@ -4,34 +4,46 @@ import { NextResponse } from "next/server";
 export async function POST(req, res) {
   try {
     const body = await req.json();
-    const { to, subject, text, from, phoneNumber } = body;
+    const { to, subject, text, from, phoneNumber, name } = body;
 
     try {
-      // Create a Nodemailer transporter
-      const transporter = nodemailer.createTransport({
-        // Configure your email provider here
-        host: process.env.SMTP_HOST,
-        port: 587,
-        secure: false, // true for 465, false for other ports
+      var transporter = nodemailer.createTransport({
+        service: "gmail",
         auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          user: process.env.ADMIN_EMAIL,
+          pass: process.env.ADMIN_PASSWORD,
         },
       });
 
-      // Send mail with defined transport object
-      const info = await transporter.sendMail({
-        from,
-        to,
-        subject,
-        text: text + `/n phoneNumber: ${phoneNumber}`,
+      var mailOptions = {
+        from: process.env.ADMIN_EMAIL,
+        to: to,
+        subject: `${subject} from Portfolio`,
+        text: `I am ${name} \n
+          I want to connect with you \n
+          Below are my details
+          Email: ${from}
+          Phonenumber: ${phoneNumber}
+          Message: ${text}
+        `,
+      };
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log("Mail Error", error);
+          throw new Error("Mail Error", error);
+        }
       });
-
-      console.log("Message sent: %s", info.messageId);
-      res.status(200).json({ message: "Email sent successfully" });
+      return NextResponse.json({
+        data: {
+          message: "Send Mail Successfully",
+        },
+      });
     } catch (error) {
       console.error("Error sending email:", error);
-      res.status(500).json({ message: "Failed to send email" });
+      return NextResponse.json(
+        { message: "Failed to send email" },
+        { status: 500 }
+      );
     }
   } catch (error) {
     console.error("Error handling JSON payload:", error);

@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+
+.ant-layout-header {
+  background: white !important;
+}
+.ant-menu-horizontal {
+  border-bottom: none !important;
+}

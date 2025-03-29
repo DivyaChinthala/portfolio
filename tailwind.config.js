@@ -22,7 +22,7 @@ module.exports = {
           primary: "#8DBF41", // "#3498DB", // Blue
           secondary: "#2ECC71", // Green
           accent: "#ff2b64", // Red
-          neutral: "#BDC3C7", // Light Gray,
+          neutral: "#666665", // Light Gray,
         },
       },
     ],

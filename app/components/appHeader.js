@@ -11,18 +11,22 @@ export default function AppHeader({ children }) {
   const items = [
     {
       key: "1",
-      label: "About",
+      label: "Home",
     },
     {
       key: "2",
-      label: "Work",
+      label: "About",
     },
     {
       key: "3",
-      label: "Skills",
+      label: "Work",
     },
     {
       key: "4",
+      label: "Skills",
+    },
+    {
+      key: "5",
       label: "Contact",
     },
   ];
@@ -48,7 +52,7 @@ export default function AppHeader({ children }) {
           <Menu
             theme="light"
             mode="horizontal"
-            defaultSelectedKeys={["2"]}
+            defaultSelectedKeys={["1"]}
             items={items}
             style={{ flex: 1 }}
             className="ml-auto flex justify-end mr-8"
@@ -77,6 +81,7 @@ export default function AppHeader({ children }) {
             className="h-screen"
             style={{
               background: "white",
+              padding: "0 50px",
             }}
           >
             {children}

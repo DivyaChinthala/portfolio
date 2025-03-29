@@ -24,6 +24,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 @layer utilities {
@@ -32,9 +34,14 @@ body {
   }
 }
 
-.ant-layout-header {
-  background: white !important;
+@media screen and (max-width: 480px) {
+  .ant-layout-header {
+    padding: 15px !important;
+  }
 }
-.ant-menu-horizontal {
-  border-bottom: none !important;
+
+@media screen and (max-width: 480px) {
+  .ant-layout-footer {
+    padding: 24px 0px !important;
+  }
 }
